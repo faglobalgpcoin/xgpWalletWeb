@@ -1,0 +1,496 @@
+@import "_theme.scss";
+
+.login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+
+	.bg-wrapper {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		flex: 4;
+		min-height: 100%;
+		background-color: #000;
+
+		@media (max-width: 992px) {
+			display: none;
+		}
+
+		.bg-title {
+			flex: 1;
+			flex-direction: column;
+			z-index: 10;
+			color: white;
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
+			padding: 65px 65px 250px 65px;
+
+			img {
+				height: 79px;
+			}
+
+			.bg-desc {
+				font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+				margin-right: 15px;
+				color: $color-red;
+				font-size: 40px;
+				text-align: right;
+				font-weight: bold;
+			}
+		}
+
+		.bg-footer {
+			font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+			color: #c2e1df;
+			position: absolute;
+			right: 80px;
+			bottom: 50px;
+		}
+	}
+
+	.bg-wrapper::before {
+		content: " ";
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		min-height: 100%;
+		z-index: 0;
+		opacity: 0.5;
+		// background: url('https://images.unsplash.com/photo-1554134449-8ad2b1dea29e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80') no-repeat center center;
+		background-color: #292e4f;
+		background-size: cover;
+	}
+
+	.login-wrapper {
+		min-height: 100%;
+		font-family: "IBM Plex Sans";
+		display: flex;
+		// position: relative;
+		flex: 5;
+		background-color: white;
+		flex-wrap: wrap;
+		// padding: 170px 75px 75px 120px;
+		padding: 0 75px 0 120px;
+
+		.page-ath-header {
+			// position: absolute;
+			// top: 50px;
+			padding: 0px;
+			margin: 0;
+			padding-top: 70px;
+			margin-bottom: 25px;
+			@media (max-width: 640px) {
+				padding-top: 0;
+				margin-bottom: 20px;
+			}
+
+			img {
+				width: 100px;
+			}
+		}
+
+		.login-content {
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+			// padding: 170px 75px 75px 120px;
+			@media (max-width: 640px) {
+				button {
+					&.primary-button {
+						margin: 0 auto;
+					}
+				}
+			}
+
+			&.change-password {
+				.input-row {
+					margin-bottom: 20px;
+				}
+
+				.input-with-button {
+					display: flex;
+					flex-direction: row;
+					flex: 1;
+					align-items: center;
+				}
+			}
+
+			&.signup {
+				padding-top: 55px;
+
+				.input-row {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					width: 500px;
+					// margin-bottom: 20px;
+					margin-bottom: 5px;
+				}
+
+				.input-with-button {
+					display: flex;
+					flex-direction: row;
+					flex: 1;
+					align-items: center;
+					input[type="file"] {
+						display: none;
+					}
+					label {
+						@extend .send-button;
+						p {
+							margin: 0;
+							@extend .send-text;
+							text-align: center;
+							line-height: 38px;
+						}
+					}
+				}
+
+				@media (max-width: 700px) {
+					height: 100%;
+					padding-top: 150px;
+
+					.input-with-button {
+						width: 100%;
+					}
+
+					.input-wrapper {
+						width: 100%;
+
+						.signup-input-text {
+							width: 100%;
+							&[name="suNationalCode"] {
+								width: 55px;
+							}
+						}
+					}
+
+					.input-row {
+						flex-direction: column;
+						align-items: flex-start;
+						width: auto;
+					}
+				}
+			}
+
+			.welcome {
+				font-size: 33px;
+				color: rgb(65, 65, 65);
+				margin-bottom: 40px;
+				font-weight: 600;
+			}
+
+			.please {
+				font-size: 17px;
+				color: rgb(152, 152, 152);
+				margin-bottom: 25px;
+			}
+
+			@media (max-width: 575px) {
+				display: flex;
+				justify-content: center;
+				height: 100vh;
+				padding: 0;
+				// padding-left: 10%;
+				// padding-right: 10%;
+				padding-left: 5%;
+				padding-right: 5%;
+
+				.please {
+					margin-bottom: 15px;
+				}
+
+				.welcome {
+					font-size: 25px;
+				}
+			}
+		}
+
+		.login-footer {
+			// position: absolute;
+			// left: 130px;
+			// bottom: 50px;
+			font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+			color: #bababa;
+			cursor: pointer;
+			order: 3;
+
+			@media (max-width: 575px) {
+				// left: calc(10% + 10px);
+				// bottom: 50px;
+				font-size: 14px;
+				// left: 50%;
+				// transform: translate(-50%, -50%);
+				width: 100%;
+				text-align: center;
+			}
+		}
+
+		@media (min-width: 575px) and (max-width: 992px) {
+			.login-content {
+				padding: 0px 75px 75px 100px;
+				padding-top: 20%;
+			}
+
+			.login-footer {
+				left: calc(100px + 10px);
+			}
+		}
+
+		.input-icon {
+			position: absolute;
+			color: rgb(193, 193, 193);
+			margin-top: 36px;
+			margin-left: 10px;
+		}
+
+		.input-text {
+			height: 60px;
+			min-width: 450px;
+			margin: 20px 0px;
+			border: 0;
+			border-bottom: 1px solid rgb(230, 230, 230);
+			background-color: white;
+			padding: 0px 30px 0px 55px;
+			transition: border-bottom 0.1s ease-in-out;
+			font-size: 20px;
+			box-sizing: border-box;
+
+			&:focus {
+				border-bottom: 1.5px solid rgb(182, 182, 182);
+				transition: border-bottom 0.1s ease-in-out;
+			}
+		}
+
+		@media (max-width: 700px) {
+			.input-text {
+				min-width: 0px;
+				width: 100%;
+			}
+		}
+
+		.input-wrapper {
+			display: flex;
+			flex-direction: column;
+			flex: 1;
+			position: relative;
+			.suName_info {
+				margin-top: 0;
+				font-size: 12px;
+				color: #c24a49;
+				font-weight: bold;
+				text-decoration: underline;
+				&::before {
+					content: "※";
+					margin-right: 5px;
+				}
+			}
+		}
+
+		.error-desc {
+			font-size: 13px;
+			position: absolute;
+			// bottom: -18px;
+			bottom: -11px;
+			left: 10px;
+			color: #c24a49;
+		}
+
+		.signup-input-text {
+			// height: 50px;
+			// width: 100%;
+			padding: 10px 10px 13px 7px;
+			margin: 5px 0px 5px 0px;
+			border: 0;
+			border-bottom: 1.5px solid rgb(230, 230, 230);
+			background-color: white;
+			transition: border-bottom 0.1s ease-in-out;
+			font-size: 18px;
+			box-sizing: border-box;
+			&[name="suNationalCode"] {
+				width: 80px;
+				margin-right: 10px;
+				text-align: right;
+			}
+
+			&:focus {
+				border-bottom: 1.5px solid rgb(128, 128, 128);
+				transition: border-bottom 0.1s ease-in-out;
+			}
+		}
+
+		.input-label {
+			width: 130px;
+			font-size: 13px;
+			font-weight: 600;
+			color: rgb(72, 72, 72);
+		}
+
+		.send-button {
+			height: 40px;
+			width: 90px;
+			border-radius: 25px;
+			border: 1px solid $color-primary;
+			align-items: center;
+			justify-content: center;
+			margin-left: 15px;
+
+			&.done {
+				border-color: gray;
+			}
+		}
+
+		.national-text {
+			position: absolute;
+			font-size: 17px;
+			font-weight: 600;
+			color: gray;
+			top: 14px;
+			left: 10px;
+			@media (max-width: 700px) {
+				left: 5px;
+			}
+		}
+
+		.send-text {
+			color: $color-primary--darker;
+			font-size: 15px;
+		}
+
+		.signup-input-icon {
+			position: absolute;
+			color: rgb(193, 193, 193);
+			margin-top: 26px;
+			margin-left: 10px;
+		}
+
+		.signup-desc {
+			// margin-top: 32px;
+			margin-top: 17px;
+			margin-left: 5px;
+			font-family: "IBM Plex Sans";
+			color: #bababa;
+
+			span {
+				margin-left: 5px;
+				font-weight: bold;
+				transition: color 0.2s ease-in-out;
+			}
+
+			span:hover {
+				cursor: pointer;
+				color: #3e425c;
+			}
+			@media (max-width: 640px) {
+				margin-left: 0;
+				text-align: center;
+				font-size: 14px;
+			}
+		}
+
+		.primary-button {
+			font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+			margin-top: 40px;
+			height: 60px;
+			// width: 220px;
+			font-size: 20px;
+			min-width: 220px;
+			max-width: fit-content;
+		}
+		.lang {
+			display: flex;
+			justify-content: flex-start;
+			@media (max-width: 640px) {
+				justify-content: center;
+			}
+			&-list {
+				margin-right: 10px;
+				label {
+					input[type="radio"] {
+						appearance: none;
+						width: 100%;
+						margin: 0;
+						display: none;
+						&:checked {
+							& + .active-bar {
+								background-color: $color-primary;
+							}
+						}
+					}
+					.active-bar {
+						width: 100%;
+						height: 2px;
+						background-color: #fefefe;
+						display: block;
+						margin-bottom: 7px;
+					}
+					img {
+						width: 35px;
+						height: 35px;
+						// border: 1px solid #fefefe;
+						border-radius: 50%;
+					}
+					p {
+						text-indent: -999px;
+						display: none;
+					}
+					&:hover {
+						cursor: pointer;
+					}
+				}
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	@media (min-width: 576px) {
+		.page-ath-heading {
+			padding-bottom: 23px;
+			font-size: 2.8em;
+		}
+		.page-ath-heading small {
+			font-size: 0.46em;
+		}
+		.page-ath-heading span {
+			font-size: 0.41em;
+		}
+	}
+	@media (max-width: 640px) {
+		& {
+			height: auto;
+			.login-wrapper {
+				height: max-content;
+				// padding: 0 5%;
+				padding: 10px 5%;
+				.login-content {
+					&.signup {
+						height: auto;
+						// padding: 50px 10%;
+						padding: 50px 5%;
+					}
+				}
+			}
+		}
+	}
+	// @media (min-width: 992px) {
+	// .page-header {
+	//   padding: 15px 0 60px;
+	// }
+	// }
+	// @media (min-width: 1200px) {
+	// .page-ath-content {
+	//   width: 38%;
+	// }
+	// .page-ath-gfx {
+	//   width: 62%;
+	// }
+	// }
+}

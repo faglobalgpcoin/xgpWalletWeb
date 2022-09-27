@@ -1,0 +1,32 @@
+.input-button {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin-top: 10px;
+	@media (max-width: 768px) {
+		flex-wrap: wrap;
+	}
+	button {
+		&.quick-amt-button {
+			margin-right: 10px;
+			padding: 10px;
+			background-color: #947357;
+			border-radius: 4px;
+			width: 100%;
+			color: #fefefe;
+			&:last-child {
+				margin-right: 0;
+			}
+			@media (max-width: 768px) {
+				width: calc((100% - 10px) / 2);
+				&:nth-child(2n) {
+					margin-right: 0;
+				}
+				&:nth-child(n + 3) {
+					margin-top: 5px;
+				}
+			}
+		}
+	}
+}
